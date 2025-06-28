@@ -27,7 +27,7 @@
 </head>
 <body class="bg-gray-100 text-gray-900">
   <header class="relative bg-gray-800 text-white text-center">
-    <img src="https://cdn.pixabay.com/photo/2017/02/08/12/14/handshake-2049777_960_720.jpg" alt="Confianza y acuerdo" class="w-full h-96 object-cover opacity-60">
+    <img src="https://images.unsplash.com/photo-1603573851997-bab79c262cdb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Confianza y acuerdo" class="w-full h-96 object-cover opacity-60">
     <div class="absolute inset-0 flex flex-col items-center justify-center">
       <h1 class="text-4xl font-bold">CASH SEGURO</h1>
       <p class="text-lg mt-2">Tu préstamo, rápido y legal, con garantía en video</p>
@@ -67,7 +67,9 @@ Este compromiso lo hago de forma voluntaria y consciente.
         <input id="cedula" type="text" required placeholder="Cédula o ID" class="w-full p-2 border rounded" />
         <input id="monto" type="number" required placeholder="Monto solicitado" class="w-full p-2 border rounded" />
         <select id="garantia" required class="w-full p-2 border rounded">
+          <option value="">Selecciona tipo de garantía</option>
           <option value="Video declaración">Video declaración</option>
+          <option value="Pagaré electrónico">Pagaré electrónico</option>
         </select>
         <textarea id="descripcion" required placeholder="Pega aquí el enlace del video (Google Drive, WeTransfer, etc.)" class="w-full p-2 border rounded"></textarea>
         <input id="contacto" type="text" required placeholder="Tu número de WhatsApp o correo" class="w-full p-2 border rounded" />
