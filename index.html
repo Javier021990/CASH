@@ -22,6 +22,24 @@
     function irAFormulario() {
       document.getElementById("formulario").scrollIntoView({ behavior: "smooth" });
     }
+
+    function simularCredito() {
+      const monto = parseFloat(document.getElementById('sim_monto').value);
+      const plazo = parseInt(document.getElementById('sim_plazo').value);
+      const interesMensual = 0.05;
+
+      if (isNaN(monto) || isNaN(plazo) || monto <= 0 || plazo <= 0) {
+        document.getElementById('resultadoSimulador').innerText = 'Por favor, ingresa valores válidos.';
+        return;
+      }
+
+      const cuota = monto * (interesMensual / (1 - Math.pow(1 + interesMensual, -plazo)));
+      const total = cuota * plazo;
+
+      document.getElementById('resultadoSimulador').innerHTML =
+        `📌 Cuota mensual: <strong>$${cuota.toFixed(2)}</strong><br>` +
+        `💰 Total a pagar: <strong>$${total.toFixed(2)}</strong>`;
+    }
   </script>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
@@ -75,6 +93,16 @@ Este compromiso lo hago de forma voluntaria y consciente.
         <input id="contacto" type="text" required placeholder="Tu número de WhatsApp o correo" class="w-full p-2 border rounded" />
         <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Enviar por WhatsApp</button>
       </form>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-semibold mb-4">Simulador de Crédito (5% mensual)</h2>
+      <div class="space-y-4">
+        <input id="sim_monto" type="number" placeholder="Monto del préstamo" class="w-full p-2 border rounded" />
+        <input id="sim_plazo" type="number" placeholder="Plazo en meses" class="w-full p-2 border rounded" />
+        <button onclick="simularCredito()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Calcular Cuota</button>
+        <div id="resultadoSimulador" class="text-lg text-gray-800 font-medium mt-2"></div>
+      </div>
     </section>
   </main>
 
