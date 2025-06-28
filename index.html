@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Préstamos con Garantía</title>
+  <title>Cash Seguro - Préstamos con Garantía</title>
   <script>
     function enviarWhatsApp() {
       const nombre = document.getElementById("nombre").value;
@@ -13,64 +13,69 @@
       const descripcion = document.getElementById("descripcion").value;
       const contacto = document.getElementById("contacto").value;
 
-      const mensaje = `Hola, quiero solicitar un préstamo.\n\nNombre: ${nombre}\nCédula: ${cedula}\nMonto: ${monto}\nTipo de Garantía: ${garantia}\nDescripción: ${descripcion}\nContacto: ${contacto}`;
+      const mensaje = `Hola, quiero solicitar un préstamo.\n\nNombre: ${nombre}\nCédula: ${cedula}\nMonto: ${monto}\nTipo de Garantía: ${garantia}\nVideo Garantía: ${descripcion}\nContacto: ${contacto}`;
 
-      const url = `https://wa.me/593XXXXXXXXX?text=${encodeURIComponent(mensaje)}`;
+      const url = `https://wa.me/593987434850?text=${encodeURIComponent(mensaje)}`;
       window.open(url, "_blank");
+    }
+
+    function irAFormulario() {
+      document.getElementById("formulario").scrollIntoView({ behavior: "smooth" });
     }
   </script>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 text-gray-900">
-  <header class="bg-white shadow p-4 text-center">
-    <h1 class="text-2xl font-bold">Préstamos con Garantía 100% Online</h1>
-    <p class="text-gray-600">Rápido, Seguro y desde tu casa</p>
+  <header class="bg-green-700 text-white py-20 text-center">
+    <h1 class="text-4xl font-bold">CASH SEGURO</h1>
+    <p class="text-lg mt-4">Recibe dinero inmediato dejando como garantía un video legal</p>
+    <button onclick="irAFormulario()" class="mt-6 bg-white text-green-700 font-semibold px-6 py-2 rounded shadow hover:bg-gray-100">
+      Solicitar Préstamo
+    </button>
   </header>
 
-  <main class="max-w-2xl mx-auto py-8 px-4">
-    <section class="mb-8">
-      <h2 class="text-xl font-semibold mb-2">¿Cómo funciona?</h2>
+  <main class="max-w-2xl mx-auto py-12 px-4">
+    <section class="mb-10">
+      <h2 class="text-2xl font-semibold mb-2">¿Cómo funciona?</h2>
       <ol class="list-decimal list-inside text-gray-700">
-        <li>Llena el formulario con tus datos.</li>
-        <li>Describe tu garantía (virtual, como fotos o documentos).</li>
-        <li>Te contactamos para finalizar el proceso.</li>
+        <li>Graba un video con la siguiente declaración legal.</li>
+        <li>Sube el video a Google Drive o WeTransfer.</li>
+        <li>Llena el formulario y pega el enlace del video.</li>
+        <li>Recibirás el préstamo si cumples con los requisitos.</li>
       </ol>
     </section>
 
-    <section>
-      <h2 class="text-xl font-semibold mb-4">Solicita tu préstamo</h2>
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold mb-2">📹 Modelo de video como garantía</h2>
+      <p class="text-gray-700 whitespace-pre-line">
+Yo, [nombre completo], con número de cédula [número], declaro que hoy, [fecha actual], he recibido un préstamo por el valor de $[monto] dólares de parte de [nombre del prestamista].
+
+Me comprometo a pagar la totalidad de esta deuda hasta el día [fecha de pago], de forma puntual.
+
+Entiendo que si no cumplo con este compromiso, el acreedor podrá utilizar este video como prueba de incumplimiento y tomar las acciones legales correspondientes. También acepto que se use este video para fines de respaldo ante cualquier reclamo.
+
+Este compromiso lo hago de forma voluntaria y consciente.
+      </p>
+    </section>
+
+    <section id="formulario">
+      <h2 class="text-2xl font-semibold mb-4">Solicita tu préstamo</h2>
       <form onsubmit="enviarWhatsApp(); return false;" class="space-y-4">
         <input id="nombre" type="text" required placeholder="Nombre completo" class="w-full p-2 border rounded" />
         <input id="cedula" type="text" required placeholder="Cédula o ID" class="w-full p-2 border rounded" />
         <input id="monto" type="number" required placeholder="Monto solicitado" class="w-full p-2 border rounded" />
         <select id="garantia" required class="w-full p-2 border rounded">
-          <option value="">Selecciona tipo de garantía</option>
-          <option value="Vehículo">Vehículo</option>
-          <option value="Electrónico">Electrónico</option>
-          <option value="Joyería">Joyería</option>
-          <option value="Otro">Otro</option>
+          <option value="Video declaración">Video declaración</option>
         </select>
         <textarea id="descripcion" required placeholder="Pega aquí el enlace del video de la garantía (Google Drive, WeTransfer, etc.)" class="w-full p-2 border rounded"></textarea>
-    <p class="text-sm text-gray-600 mt-1">Graba un video corto mostrando y describiendo verbalmente tu garantía. Luego súbelo a Google Drive o WeTransfer y pega el enlace aquí.</p>
         <input id="contacto" type="text" required placeholder="Tu número de WhatsApp o correo" class="w-full p-2 border rounded" />
         <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Enviar por WhatsApp</button>
       </form>
     </section>
-  
-    <section class="mt-10">
-      <h2 class="text-xl font-semibold mb-4">Ejemplos de Garantías en Video</h2>
-      <ul class="list-disc list-inside text-gray-700 space-y-2">
-        <li><strong>Ejemplo 1:</strong> Mostrar un celular de alta gama funcionando, enfocar número de serie si es posible.</li>
-        <li><strong>Ejemplo 2:</strong> Mostrar una joya o reloj, describir su estado y valor aproximado.</li>
-        <li><strong>Ejemplo 3:</strong> Mostrar el vehículo (tarjeta de propiedad y placas visibles).</li>
-      </ul>
-      <p class="mt-4 text-red-600 font-semibold">IMPORTANTE: En el video debes mostrar tu cédula de identidad junto a la garantía para validar que eres el propietario.</p>
-    </section>
   </main>
 
-
   <footer class="text-center text-gray-500 text-sm py-6">
-    © 2025 Préstamos Garantizados. Todos los derechos reservados.
+    © 2025 CASH SEGURO. Todos los derechos reservados.
   </footer>
 </body>
 </html>
